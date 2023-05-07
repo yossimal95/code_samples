@@ -12,7 +12,7 @@ using Renci.SshNet;
 using Renci.SshNet.Common;
 using Renci.SshNet.Sftp;
 
-namespace SFTP_POC_Haim {
+namespace SFTP_POC {
     
   class Program {
     
