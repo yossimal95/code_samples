@@ -1,0 +1,64 @@
+// First u need to install Package: 
+// - SSH.NET
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using Renci.SshNet;
+using Renci.SshNet.Common;
+using Renci.SshNet.Sftp;
+
+namespace SFTP_POC_Haim {
+    
+  class Program {
+    
+    static void Main(string[] args) {
+      
+      string host = "00.00.00.00";
+      string userName = "0000000";
+      string password = "0000000";
+      int port = 22;
+      
+      string filePathToSend = @ "D:\path";
+      string filePathToSave = "/path";
+      string finalPathToSave = "/path/";
+      string fileName = "aa.txt";
+      filePathToSend = filePathToSend + "\\" + fileName;
+        
+      try {
+        Console.WriteLine("Create client Object");
+        using(SftpClient sftpClient = new SftpClient(host, port, userName, password)) {
+          Console.WriteLine("Connect to server");
+          sftpClient.Connect();
+          Console.WriteLine("Creating FileStream object to stream a file");
+          if (sftpClient.IsConnected) {
+            using(FileStream fs = new FileStream(filePathToSend, FileMode.Open)) {
+              if (fs != null) {
+                sftpClient.BufferSize = 1024;
+                sftpClient.UploadFile(fs, filePathToSave + $ "\\" + fileName, null);
+              }
+              fs.Dispose();
+            }
+          }
+          Console.WriteLine("Getting the uploaded file..");
+          var existingUploadedFile = sftpClient.Get(filePathToSave + "/" + fileName);
+          if (existingUploadedFile != null) {
+            Console.WriteLine("changing is location..");
+            existingUploadedFile.MoveTo(finalPathToSave + fileName);
+          }
+          sftpClient.Dispose();
+        }
+      } catch (Exception ex) {
+        if (ex is SshConnectionException || ex is SocketException) {
+          Console.WriteLine(string.Format("No good.. :-( \t{0}", ex.Message));
+        } else {
+          Console.WriteLine(ex.Message);
+        }
+      }
+    }
+  }
+}
