@@ -1,0 +1,14 @@
+// Save all workspaces to XML file
+tf workspaces /owner:* /format:xml >> "Path\To\Save\My_list.xml"
+
+// Undo changes on file
+tf undo /workspace:"workspace;user-name" "$/Path/To/File.txt"
+
+// Unlock file
+tf lock /lock:none /workspace:"workspace;user-name" "$/Path/To/File.txt"
+
+// Lock file on user
+tf lock /lock:checkout /workspace:"workspace;user-name" "$/Path/To/File.txt"
+
+// Change workspace name
+tf workspace /newname:OLD-NAME NEW-NAME
