@@ -7,9 +7,6 @@ New-Item -ItemType "directory" -Name "ChromeTempFiles" -Path ($DesktopLocation +
 # final Shortcut path
 $ShortcutLocation = $DesktopLocation.ToString() + "\==Chrome - disabled CORS==.lnk";
 
-# create temp file folder
-New-Item -ItemType "directory" -Name "ChromeTempFiles" -Path ($DesktopLocation + '\')
-
 #
 $WScriptShell = New-Object -ComObject WScript.Shell;
 
