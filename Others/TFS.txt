@@ -12,3 +12,15 @@ tf lock /lock:checkout /workspace:"workspace;user-name" "$/Path/To/File.txt"
 
 // Change workspace name
 tf workspace /newname:OLD-NAME NEW-NAME
+
+// A list of files that the user has checked out (for the current user)
+tf stat $/myTfs\* /recursive
+
+// A list of files that the user has checked out by workspace name
+tf stat $/myTfs\* /recursive /workspace:"WORKSPACE;USER-NAME"
+
+// A list of files that the user has checked out by user name
+tf stat $/myTfs\*  /recursive /user:"USER-NAME"
+
+// A list of files that checked out by *all users*
+tf stat $/myTfs\* /recursive /user:*
