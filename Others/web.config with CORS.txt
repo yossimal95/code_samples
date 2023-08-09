@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+        <cors enabled="true">
+            <clear />                                
+                <add origin="http://localhost:57580" allowCredentials="true">
+                <allowMethods>
+                    <clear />
+                    <add method="GET" />
+                    <add method="HEAD" />
+                    <add method="POST" />
+                    <add method="PUT" />
+                    <add method="DELETE" />
+                </allowMethods>
+                <allowHeaders allowAllRequestedHeaders="true" />
+            </add>
+        </cors>
+    </system.webServer>
+  </location>
+</configuration>
