@@ -5,7 +5,7 @@ $ShortcutPath = '';
 if (Test-Path -path 'C:\Program Files\Google\Chrome\Application\chrome.exe') {
     $ShortcutPath = 'C:\Program Files\Google\Chrome\Application\chrome.exe';
 }
-elsif (Test-Path -path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') {
+elseif (Test-Path -path 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe') {
     $ShortcutPath = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe';
 }
 else {
@@ -33,5 +33,5 @@ $Shortcut.TargetPath = $ShortcutPath;
 # add the --user-data-dir= with thae path to the temp_files folder && --disable-web-security
 $Shortcut.Arguments = ' --user-data-dir="' + ($DesktopLocation + '\ChromeTempFiles') + '"  --disable-web-security';
 
-# save
+# save :-)
 $Shortcut.Save();
