@@ -15,7 +15,7 @@ namespace RestClient
                 // use this handler if you need to send credentials
                 HttpClientHandler handler = new HttpClientHandler()
                 {
-                    //UseDefaultCredentials = true
+                    UseDefaultCredentials = true
                 };
 
                 using (HttpClient client = new HttpClient(handler))
