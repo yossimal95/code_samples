@@ -1,8 +1,6 @@
 // Run function on keyboard event
 <div tabIndex="0" onKeyDown={(e) => { e.key === 'Enter' && doSomething() }}></div>
 
-
-
 // Copy text and animate it on click
 const copyText = (e) => {
         try {
@@ -23,3 +21,6 @@ const copyText = (e) => {
             console.error(err);
     }
 }
+
+<div onClick={(e) => { copyText(e) }}>some text..</div>
+
