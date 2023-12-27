@@ -4,7 +4,6 @@
 // Copy text and animate it on click
 <div onClick="copyText(event)">some text..</div>
 <script>
-    // Copy text and animate it on click
     const copyText = (e) => {
         try {
             const frames = [
