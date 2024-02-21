@@ -1,7 +1,12 @@
+:root {
+    --menu-color: rgb(58, 12, 185);
+    --menu-text-color: white;
+}
+
 .navbar_desktop {
     display: flex;
     width: 100%;
-    background-color: blue;
+    background-color: var(--menu-color);
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
@@ -11,7 +16,7 @@
 }
 
 .logo {
-    color: white;
+    color: var(--menu-text-color);
     padding: 10px;
     cursor: pointer;
     user-select: none;
@@ -20,25 +25,25 @@
 .navbar_item_desktop {
     display: inline-block;
     padding: 10px;
-    background-color: blue;
-    color: white;
+    background-color: var(--menu-color);
+    color: var(--menu-text-color);
     font-weight: bold;
     margin: 0px 0px 0px 5px;
     cursor: pointer;
     user-select: none;
-    border-bottom: 7px solid blue;
-    border-top: 7px solid blue;
+    border-bottom: 7px solid var(--menu-color);
+    border-top: 7px solid var(--menu-color);
     transition: border-bottom 0.3s;
 }
 
 .navbar_item_desktop:hover {
-    border-bottom: 7px solid white;
+    border-bottom: 7px solid var(--menu-text-color);
 }
 
 .navbar_mobile {
     display: flex;
     width: 100%;
-    background-color: blue;
+    background-color: var(--menu-color);
     direction: ltr;
     align-items: center;
     justify-content: space-between;
@@ -66,7 +71,7 @@
 }
 
 .menu_open {
-    background-color: blue;
+    background-color: var(--menu-color);
     height: 100%;
     width: 80%;
     box-sizing: border-box;
@@ -82,9 +87,9 @@
 
 .navbar_item_mobile {
     width: 100%;
-    color: white;
+    color: var(--menu-text-color);
     padding: 10px;
-    border-bottom: 1px dashed white;
+    border-bottom: 1px dashed var(--menu-text-color);
     box-sizing: border-box;
     cursor: pointer;
 }
