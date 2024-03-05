@@ -1,4 +1,4 @@
-// in *aspx.cs*
+// in *aspx.cs*. notice: its has to be in aspx file and not ascx etc.. files.
 [WebMethod]
 public static string GetHello(string name)
 {
