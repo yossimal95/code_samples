@@ -15,10 +15,6 @@ const Navbar = ({ arrOfItems }) => {
     const [mobile, setMobile] = useState(window.innerWidth < 600);
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
-    window.addEventListener("resize", () => {
-        setMobile(window.innerWidth < 600);
-    });
-
     return (
         <>            
             {
