@@ -21,7 +21,7 @@
         const addButton = document.getElementById("add-button");
         const unsubscribeButton = document.getElementById("unsubscribe-button");
 
-        // Subscribe for subscribeButton click event..
+        // Subscribe the subscribeButton click event..
         rxjs.fromEvent(subscribeButton, 'click').subscribe(() => {
             // Made the subscription for myVar - fill subscription object..
             subscription = myVar.subscribe(value => {
@@ -29,13 +29,13 @@
             });
         });
 
-        // Subscribe for addButton click event..
+        // Subscribe the addButton click event..
         rxjs.fromEvent(addButton, 'click').subscribe(() => {
             // Change myVar value..
             myVar.next(myVar.value + 1);
         });
 
-        // Subscribe for unsubscribeButton click event..
+        // Subscribe the unsubscribeButton click event..
         rxjs.fromEvent(unsubscribeButton, 'click').subscribe(() => {
             // Unsubscribe the subscription object.. 
             subscription.unsubscribe();
