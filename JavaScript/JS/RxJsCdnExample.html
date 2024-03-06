@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/rxjs@7.8.1/dist/bundles/rxjs.umd.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="subscribe-button">Subscribe</button>
+    <button id="add-button">Add</button>
+    <button id="unsubscribe-button">Unsubscribe</button>
+    <p id="output"></p>
+    <script>
+        // Create a BehaviorSubject with an initial value
+        const myVar = new rxjs.BehaviorSubject(0);
+        // Object for subscription 
+        let subscription = null;
+
+        const subscribeButton = document.getElementById("subscribe-button");
+        const addButton = document.getElementById("add-button");
+        const unsubscribeButton = document.getElementById("unsubscribe-button");
+
+        // Subscribe for subscribeButton click event..
+        rxjs.fromEvent(subscribeButton, 'click').subscribe(() => {
+            // Made the subscription for myVar - fill subscription object..
+            subscription = myVar.subscribe(value => {
+                console.log('New value:', value);
+            });
+        });
+
+        // Subscribe for addButton click event..
+        rxjs.fromEvent(addButton, 'click').subscribe(() => {
+            // Change myVar value..
+            myVar.next(myVar.value + 1);
+        });
+
+        // Subscribe for unsubscribeButton click event..
+        rxjs.fromEvent(unsubscribeButton, 'click').subscribe(() => {
+            // Unsubscribe the subscription object.. 
+            subscription.unsubscribe();
+        });
+    </script>
+</body>
+
+</html>
