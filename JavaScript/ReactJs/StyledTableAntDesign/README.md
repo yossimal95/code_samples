@@ -1,4 +1,4 @@
-# Styled table made with react-table v7
+# Styled table (AntDesign style..) made with react-table v7
 
 DEMO:
 
