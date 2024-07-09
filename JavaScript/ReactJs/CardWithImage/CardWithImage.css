@@ -1,9 +1,8 @@
-.card-container {
-    position: relative;
+.card-container {    
+    display: inline-block;
 }
 
 .card {
-    position: absolute;
     display: flex;
     width: 300px;
     height: 400px;
