@@ -19,7 +19,7 @@ const Father = () => {
       const scrollTop = document.getElementById('root').scrollTop; // window.scrollTop 
       const top = rect.top + scrollTop;
 
-      document.getElementById('root').scrollTo({
+      document.getElementById('root').scrollTo({ // window.document.scrollTo
         top: top,
         behavior: 'smooth'
       });
