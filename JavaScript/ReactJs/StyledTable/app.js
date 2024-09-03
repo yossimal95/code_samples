@@ -3,7 +3,7 @@ const App = () => {
 
     return (
         <div style={{ width: '400px', height: '400px', margin: 'auto' }}>
-            <CoursesTable
+            <StyledTable
                 data={data}
                 columns={columns}
                 hiddenColumns={['fruitId']}
