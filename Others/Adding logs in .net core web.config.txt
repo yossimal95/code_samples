@@ -1,0 +1,20 @@
+// In web.config
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<location path="." inheritInChildApplications="false">
+	</location>
+	<system.webServer>
+		<aspNetCore stdoutLogEnabled="true" stdoutLogFile="logs\strLog"></aspNetCore>
+	</system.webServer>
+</configuration> 
+  
+// In controller
+private readonly ILogger<MyController> _logger;
+public MyController(IConfiguration configuration, ILogger<MyController> logger)
+{
+    _configuration = configuration;
+    _logger = logger;
+}
+
+// In code
+_logger.LogInformation(log);
