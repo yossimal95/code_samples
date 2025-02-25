@@ -1,0 +1,35 @@
+install Serilog on dotnet 3.1 project:
+1. install nuget Serilog.AspNetCore version 9.0.0
+2. in Program.cs add:
+public static void Main(string[] args)
+{
+    // Configure Serilog
+    Log.Logger = new LoggerConfiguration()
+        .MinimumLevel.Warning() 
+        .WriteTo.File(
+            path: "Serilog_logs/log-.txt",        
+            rollingInterval: RollingInterval.Day, 
+            outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} || [{Level:u3}] || {Message:lj}{NewLine}{Exception}{NewLine}", // Log format
+            retainedFileCountLimit: 7    
+        )
+        .CreateLogger();
+
+    CreateWebHostBuilder(args).Build().Run();
+}
+3. in Startup.cs add:
+public void ConfigureServices(IServiceCollection services)
+{
+    // add Serilog
+    services.AddSerilog();
+    services.AddSwaggerGen();
+}
+4. in code add:
+private readonly ILogger<MyTestController> _logger; 
+public MyTestController(IConfiguration configuration, ILogger<MyTestController> logger)
+{
+    _configuration = configuration;
+    _logger = logger;
+}
+
+_logger.LogInformation(log);
+_logger.LogError(ex, $"Custom message: bla bla, {ex.Message}");
