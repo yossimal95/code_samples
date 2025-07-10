@@ -1,4 +1,4 @@
--- SQL ...
+-- SQL ... you can check the XML type fiels or convert varchar/text type field to XML , then add it to the query..
 where someId = 1111
 and convert(xml, data).value('(//xmlRootItem/xmlRootChildItem)[1]', 'varchar(max)') like '8' -- '[1]' - check only the first
 
