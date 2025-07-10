@@ -7,3 +7,5 @@ or convert(xml, someTable.someField).exist('//xmlRootItem/xmlRootChildItem[text(
 
 
 or convert(xml, someTable.someField).exist('//ArrayOfPerxmlRootItemiod/xmlRootChildItem[text()="someText"]') = 1 -- check if one of the items == some text
+
+-- Also consider checking it using: WHERE xmlField LIKE '%some text%' -- <xml><element>some text</element></xml>..
