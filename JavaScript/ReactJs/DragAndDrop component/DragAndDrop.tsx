@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+// https://codesandbox.io/p/sandbox/draggable-div-element-react-hook-56xrm?file=%2Fsrc%2FApp.js
+
 interface DragState {
     startX: number;  // clientX
     startY: number;  // clientY
@@ -8,8 +10,6 @@ interface DragState {
     width: number;
     height: number;
   }
-
-// https://codesandbox.io/p/sandbox/draggable-div-element-react-hook-56xrm?file=%2Fsrc%2FApp.js
 
 const useDrag = ({ ref, calculateFor = "topLeft" }) => {
     const [dragInfo, setDragInfo] = useState<DragState | null>();
