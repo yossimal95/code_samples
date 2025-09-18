@@ -130,16 +130,18 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({ children, draggbleElement, co
     ref: draggableRef,
   });
 
+  let style: React.CSSProperties = { position: "fixed", top: position["y"], left: position["x"], ...containerStyle };
+
+  if (position["x"] == undefined) {
+    style.transform = "translate(-50%, -50%)";
+    style.top = "50%";
+    style.left = "50%";
+  } else {
+    style.transform = "none";
+  }
+
   return (
-    <div
-      ref={draggableRef}
-      style={{
-        position: "fixed",
-        top: position["y"],
-        left: position["x"],
-        ...containerStyle,
-      }}
-    >
+    <div ref={draggableRef} style={style}>
       {children}
     </div>
   );
