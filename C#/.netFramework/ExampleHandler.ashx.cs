@@ -2,6 +2,10 @@ using System;
 using System.Web;
 using System.Web.SessionState;
 
+// ExampleHandler – Generic ASP.NET Framework HTTP Handler for Action-Based Web Requests
+// This class provides a reusable template for handling HTTP GET and POST requests in ASP.NET Framework applications. 
+// It supports action-based routing, permission checks, and structured error responses, making it ideal for lightweight web service endpoints or AJAX-based interactions.
+
 public class ExampleHandler : IHttpHandler, IRequiresSessionState
 {
     public void ProcessRequest(HttpContext context)
