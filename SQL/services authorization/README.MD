@@ -20,11 +20,11 @@
                       |                        |
                       |                        |
                       v                        v
-              +------------------------+     
-              | ConsumerServiceMethods |     
-              +------------------------+     
-              | consumerId (FK)        |     
-              | serviceMethodId (FK)   |     
-              | viewErrors             |     
-              +------------------------+
+                      +------------------------+     
+                      | ConsumerServiceMethods |     
+                      +------------------------+     
+                      | consumerId (FK)        |     
+                      | serviceMethodId (FK)   |     
+                      | viewErrors             |     
+                      +------------------------+
 ```
