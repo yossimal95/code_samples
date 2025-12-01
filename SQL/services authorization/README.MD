@@ -6,6 +6,7 @@
 - **ConsumerServiceMethods**: links consumers to methods and sets permissions (e.g., view errors)
 
 # diagram to illustrate the relationships:
+```
 +----------------+       +----------------+       +--------------------+
 |   Consumers    |       |    Services    |       |   ServiceMethods   |
 +----------------+       +----------------+       +--------------------+
@@ -26,3 +27,4 @@
               | serviceMethodId (FK)   |     
               | viewErrors             |     
               +------------------------+
+```
