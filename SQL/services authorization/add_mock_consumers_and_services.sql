@@ -2,15 +2,16 @@
 -- INSERT SAMPLE CONSUMERS
 -- ========================================================
 INSERT INTO [db_authorization].[Consumers] (
-    [key],                     -- Unique identifier for the consumer
-    [name],                    -- Consumer name
-    [contactPersonName],       -- Name of the contact person
-    [contactPersonPhoneNumber] -- Phone number of contact person
+    [key],                      
+    [name],                     
+    [contactPersonName],        
+    [contactPersonPhoneNumber]  
 )
 VALUES
     (NEWID(), 'Test Consumer A', 'Alice Tester', '555-1010'),
     (NEWID(), 'Test Consumer B', 'Bob Checker', '555-2020'),
     (NEWID(), 'Test Consumer C', 'Charlie Mock', '555-3030');
+
 
 -- ========================================================
 -- INSERT SAMPLE SERVICES
@@ -20,31 +21,33 @@ VALUES
     ('User Management Service'),
     ('Billing Service');
 
+
 -- ========================================================
 -- INSERT SERVICE METHODS
 -- ========================================================
 INSERT INTO [db_authorization].[ServiceMethods] (
-    [serviceId],  -- FK referencing Services.id
-    [name]        -- Method name for the service
+    [serviceId],   
+    [name]         
 )
 VALUES
-    (1, 'GetUsers'),       -- WARNING: Hardcoded IDs! Better to SELECT the service ID dynamically.
-    (2, 'ProcessInvoice'); -- Could break if service IDs are not 1 and 2.
+    (1, 'GetUsers'),       
+    (2, 'ProcessInvoice'); 
+
 
 -- ========================================================
 -- ASSOCIATE CONSUMERS WITH SERVICE METHODS
 -- ========================================================
 INSERT INTO [db_authorization].[ConsumerServiceMethods] (
-    consumerId,       -- FK referencing Consumers.id
-    serviceMethodId,  -- FK referencing ServiceMethods.id
-    viewErrors        -- Permission flag
+    consumerId,       
+    serviceMethodId,   
+    viewErrors         
 )
 VALUES
     (1, 1, 1),
     (1, 2, 0),
     (2, 1, 1),
     (2, 2, 0);
--- NOTE: Using hardcoded IDs again. If the Consumers or ServiceMethods IDs are auto-generated, this may not match.
+
 
 -- ========================================================
 -- SELECT CONSUMER DETAILS WITH SERVICE METHODS
