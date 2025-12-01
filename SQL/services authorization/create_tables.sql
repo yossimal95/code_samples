@@ -32,7 +32,6 @@ CREATE TABLE [db_authorization].[ServiceMethods](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[serviceId] [int] NOT NULL,  -- FIXED: changed from NULL to NOT NULL
 	[name] [varchar](100) NOT NULL,
-	[viewErrors] [bit] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -51,6 +50,7 @@ CREATE TABLE [db_authorization].[ConsumerServiceMethods](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[consumerId] [int] NOT NULL,
 	[serviceMethodId] [int] NOT NULL,
+	[viewErrors] [bit] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
