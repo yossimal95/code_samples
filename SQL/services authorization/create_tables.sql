@@ -43,8 +43,6 @@ ALTER TABLE [db_authorization].[ServiceMethods]  WITH CHECK ADD  CONSTRAINT [FK_
 REFERENCES [db_authorization].[Services] ([id])
 
 
-
-
 -- Table mapping consumers to service methods (permissions table)
 CREATE TABLE [db_authorization].[ConsumerServiceMethods](
 	[id] [int] IDENTITY(1,1) NOT NULL,
