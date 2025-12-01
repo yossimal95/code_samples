@@ -5,7 +5,7 @@
 - **ServiceMethods**: specific actions within a service  
 - **ConsumerServiceMethods**: links consumers to methods and sets permissions (e.g., view errors)
 
-# diagram to illustrate the relationships:
+# Diagram to illustrate the relationships:
 ```
 +----------------+       +----------------+       +--------------------+
 |   Consumers    |       |    Services    |       |   ServiceMethods   |
