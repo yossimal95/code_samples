@@ -1,8 +1,12 @@
+-- ========================================================
 -- Create schema for authorization-related tables
+-- ========================================================
 CREATE SCHEMA db_authorization
 
-
+	
+-- ========================================================
 -- Table storing consumers (clients/applications)
+-- ========================================================
 CREATE TABLE [db_authorization].[Consumers](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[key] [uniqueidentifier] NOT NULL,
@@ -16,7 +20,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 
+-- ========================================================
 -- Table storing registered services
+-- ========================================================
 CREATE TABLE [db_authorization].[Services](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[name] [varchar](100) NOT NULL, 
@@ -27,7 +33,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 
+-- ========================================================
 -- Table storing methods (API endpoints) belonging to services
+-- ========================================================
 CREATE TABLE [db_authorization].[ServiceMethods](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[serviceId] [int] NOT NULL,  -- FIXED: changed from NULL to NOT NULL
@@ -43,7 +51,9 @@ ALTER TABLE [db_authorization].[ServiceMethods]  WITH CHECK ADD  CONSTRAINT [FK_
 REFERENCES [db_authorization].[Services] ([id])
 
 
+-- ========================================================	
 -- Table mapping consumers to service methods (permissions table)
+-- ========================================================
 CREATE TABLE [db_authorization].[ConsumerServiceMethods](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[consumerId] [int] NOT NULL,
